@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tAlly+ • Privacy Policy, Terms of Service & Medical Notice</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='22' fill='%2316171a'/%3E%3Ctext x='44' y='72' text-anchor='middle' font-family='Georgia, Times New Roman, serif' font-style='italic' font-weight='600' font-size='70' fill='%2338bdf8'%3Et%3C/text%3E%3Cpath d='M63 18 v14 M56 25 h14' stroke='%2338bdf8' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
     :root {
       --bg: #0f172a;
@@ -20,17 +21,55 @@
       --success: #10b981;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 20px 80px; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 20px 80px; }
     .container { max-width: 720px; margin: 0 auto; }
     header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-    
+
+    /* Exact match to in-app AppIconView */
+    .app-icon-tile {
+      width: 76px;
+      height: 76px;
+      border-radius: 17px;
+      background-color: #16171a;
+      margin: 0 auto 14px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      user-select: none;
+    }
+    .app-icon-tile .icon-t {
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 55px;
+      line-height: 1;
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: translate(-3px, -1px);
+    }
+    .app-icon-tile .icon-plus {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1;
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     /* Exact match to in-app TallyWordmark */
     .wordmark {
       display: inline-flex;
       align-items: baseline;
       font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
       font-style: italic;
-      font-size: 40px;
+      font-size: 38px;
       line-height: 1.1;
       margin-bottom: 8px;
       user-select: none;
@@ -50,8 +89,20 @@
       margin-left: 2px;
     }
 
-    .subtitle { color: var(--text-muted); font-size: 13px; font-weight: 600; margin-top: 2px; }
-    .sub-caption { color: var(--text-muted); font-size: 12px; margin-top: 4px; opacity: 0.85; }
+    .tagline {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
 
     .nav-tabs { display: flex; gap: 8px; justify-content: center; margin: 22px 0 6px; flex-wrap: wrap; }
     .nav-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: 0.15s; }
@@ -109,11 +160,17 @@
 
   <div class="container">
     <header>
-      <div class="wordmark" aria-label="tAlly+">
-        <span class="wm-t">t</span><span class="wm-A">A</span><span class="wm-lly">lly</span><span class="wm-plus">+</span>
+      <div class="app-icon-tile" aria-hidden="true">
+        <span class="icon-t">t</span>
+        <span class="icon-plus">+</span>
       </div>
-      <p class="subtitle">Version 1.0 • Local-First &amp; Encrypted</p>
-      <p class="sub-caption">tAlly+ policies, privacy architecture &amp; medical notices</p>
+      <div>
+        <div class="wordmark" aria-label="tAlly+">
+          <span class="wm-t">t</span><span class="wm-A">A</span><span class="wm-lly">lly</span><span class="wm-plus">+</span>
+        </div>
+      </div>
+      <p class="tagline">Private Sexual Health &amp; Activity Log</p>
+      <p class="subtitle">Version 1.0 (iOS) • Local-First &amp; Encrypted</p>
       
       <div class="nav-tabs">
         <a href="#privacy" class="nav-btn">Privacy Policy</a>
@@ -164,4 +221,115 @@
         <p>Export: generate a JSON export of your records anytime in Settings. It is not encrypted, so store it somewhere safe.</p>
         <p>Archived reminders: deleted reminders moved to Archived are retained locally for 30 days so you can restore them if needed, after which they are automatically and permanently deleted (or you can permanently delete them immediately at any time).</p>
         <p>Erase local data: 'Erase All Local Data' in Settings permanently wipes all local records, passcodes, and security questions from your device.</p>
-        <p>Delete cloud account: permanently delete your cloud account and all synced backups in Settings &gt; Account &amp; Cloud Backup &gt
+        <p>Delete cloud account: permanently delete your cloud account and all synced backups in Settings &gt; Account &amp; Cloud Backup &gt; Delete Cloud Account.</p>
+        <p>Under the Philippine Data Privacy Act of 2012 (RA 10173) and, where applicable, equivalent laws in your country, you may have rights to access, correct, erase, and object to processing of your personal data, and to lodge a complaint with the National Privacy Commission (Philippines) or your local authority. Contact us to exercise these rights.</p>
+      </div>
+
+      <div class="card">
+        <h3>6. Age Restriction &amp; Children</h3>
+        <p>tAlly+ is for adults aged 18 and over. It is not directed to minors, and we do not knowingly collect personal data from anyone under 18.</p>
+      </div>
+
+      <div class="card">
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this policy. We will change the 'Last Updated' date and, for material changes, notify you in the app. Controller: tAlly+ Developer, Philippines.</p>
+      </div>
+    </section>
+
+    <!-- 2. TERMS OF SERVICE -->
+    <section id="terms">
+      <div class="section-header" style="color: var(--indigo);">
+        <span>📄 TERMS OF SERVICE • LAST UPDATED OCTOBER 2026</span>
+      </div>
+      <p class="section-intro">
+        Please read these Terms of Service carefully before using tAlly+. By downloading, installing, or using the application, you agree to be bound by these terms.
+      </p>
+
+      <div class="card">
+        <h3>1. Acceptance, Age &amp; Apple EULA (18+)</h3>
+        <p>By downloading or using tAlly+, you agree to these Terms and to Apple's Standard Licensed Application End User License Agreement (EULA).</p>
+        <p>You must be at least 18 years old (or the age of majority where you live, if higher). By using the app, you affirm that you meet this requirement.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Personal &amp; Non-Commercial License</h3>
+        <p>We grant you a personal, non-exclusive, non-transferable, revocable license to use tAlly+ on Apple devices you own or control, solely for personal self-tracking and wellness organization.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Passcode Security &amp; Backup Responsibility</h3>
+        <p>You are solely responsible for keeping your device passcode, app PIN, and recovery answers confidential.</p>
+        <p>Because tAlly+ is local-first, you are responsible for maintaining backups using JSON export or optional Cloud Backup. We cannot recover data if you lose both your passcode and recovery answers.</p>
+      </div>
+
+      <div class="card">
+        <h3>4. Intellectual Property &amp; Acceptable Use</h3>
+        <p>All visual assets, iconography, wordmarks, interface designs, and source code are the intellectual property of the developer.</p>
+        <p>You may not reverse-engineer, decompile, redistribute, or reproduce the app without written permission. We may suspend or terminate access for misuse or violation of these Terms.</p>
+      </div>
+
+      <div class="card">
+        <h3>5. Disclaimer &amp; Limitation of Liability</h3>
+        <p>To the maximum extent permitted by law, tAlly+ is provided 'as is' without warranties of any kind, and tAlly+ and its developers are not liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the app.</p>
+        <p>Some jurisdictions do not allow certain exclusions or limits, so they may not apply to you.</p>
+      </div>
+
+      <div class="card">
+        <h3>6. Governing Law</h3>
+        <p>These Terms are governed by the laws of the Republic of the Philippines, and disputes will be brought before the proper courts of the Philippines, without depriving you of any mandatory consumer-protection rights in your country of residence.</p>
+        <p>We may update these Terms and will change the 'Last Updated' date when we do.</p>
+      </div>
+    </section>
+
+    <!-- 3. MEDICAL DISCLAIMER -->
+    <section id="medical">
+      <div class="section-header" style="color: var(--danger);">
+        <span>🩺 CRITICAL MEDICAL &amp; HEALTH DISCLAIMER</span>
+      </div>
+      <p class="section-intro">
+        Please read this medical notice thoroughly. tAlly+ is an organizational journal and does not provide clinical care or emergency services.
+      </p>
+
+      <div class="card">
+        <h3>1. Not a Substitute for Medical Advice or Diagnosis</h3>
+        <p>tAlly+ is a personal activity journal, screening reminder calendar, and medication course scheduler.</p>
+        <p>tAlly+ is NOT a medical device, diagnostic instrument, clinical provider, or licensed medical professional.</p>
+        <p>The countdowns, test cadences, and reminder tools in this app are for personal organizational reference only and do NOT constitute medical advice, diagnosis, treatment, or clinical recommendations.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. HIV 90-Day Window Period Tracker Notice</h3>
+        <p>The 90-day exposure window assessment in tAlly+ applies strictly to statistical HIV exposure models and the 90-day conclusive window clearance period based on public health guidelines (CDC/WHO).</p>
+        <p>It does NOT assess, detect, track, or guarantee clearance for other Sexually Transmitted Infections (STIs/STDs) such as Syphilis, Gonorrhea, Chlamydia, HPV, Herpes, or Hepatitis, which have distinct transmission routes, incubation periods, and testing guidelines.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Always Consult Licensed Healthcare Providers</h3>
+        <p>Always consult a licensed physician, STI clinic, or qualified medical professional with any questions regarding sexual health, screening intervals, symptoms, test interpretations, or clinical treatments.</p>
+        <p>Never disregard or delay seeking professional clinical guidance because of something you have logged, calculated, or read in tAlly+.</p>
+      </div>
+
+      <div class="card">
+        <h3>4. PrEP, PEP &amp; Doxy-PEP Medication Notice</h3>
+        <p>Information and reminder presets for Pre-Exposure Prophylaxis (PrEP), Post-Exposure Prophylaxis (PEP), Doxycycline Post-Exposure Prophylaxis (Doxy-PEP), or antibiotics are scheduling aids only.</p>
+        <p>Follow your prescribing physician's or dispensing pharmacist's instructions exactly regarding dosage, timing, and administration.</p>
+        <p>Post-exposure prophylaxis (PEP) is time-critical. If you suspect an exposure to HIV or an STI, contact an emergency room or sexual health clinic immediately, without delay.</p>
+      </div>
+
+      <div class="card">
+        <h3>5. Medical Emergencies</h3>
+        <p>If you believe you are experiencing a medical emergency, acute infection, or severe reaction, immediately call your local emergency telephone number (911 in the US/Canada, 112 in the EU, 999 in the UK) or go to the nearest emergency hospital.</p>
+      </div>
+    </section>
+
+    <!-- 4. CONTACT / SUPPORT -->
+    <footer id="contact">
+      <p><strong>Questions, Feedback or Inquiries?</strong></p>
+      <p style="margin-top: 4px;">Direct Support: <a href="mailto:tallyplus.app@gmail.com">tallyplus.app@gmail.com</a></p>
+      <p style="margin-top: 12px; font-size: 12px;">© 2026 tAlly+ Developer, Philippines. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
