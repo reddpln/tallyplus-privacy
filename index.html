@@ -23,7 +23,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 20px 80px; }
     .container { max-width: 720px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    header { text-align: center; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
 
     /* Exact match to in-app AppIconView */
     .app-icon-tile {
@@ -104,11 +104,46 @@
       margin-top: 4px;
     }
 
-    .nav-tabs { display: flex; gap: 8px; justify-content: center; margin: 22px 0 6px; flex-wrap: wrap; }
-    .nav-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: 0.15s; }
-    .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+    /* Segmented Tab Bar matching In-App LegalDocumentSheet */
+    .segmented-control {
+      display: inline-flex;
+      background: #0b1120;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+      margin: 22px auto 4px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+    }
+    .tab-btn.active {
+      background: var(--card-bg);
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+    }
 
-    section { margin-bottom: 36px; }
+    section.doc-section {
+      margin-bottom: 36px;
+    }
+    section.doc-section.hidden {
+      display: none;
+    }
+
     .section-header {
       font-size: 11px;
       font-weight: 700;
@@ -172,16 +207,16 @@
       <p class="tagline">Private Sexual Health &amp; Activity Log</p>
       <p class="subtitle">Version 1.0 (iOS) • Local-First &amp; Encrypted</p>
       
-      <div class="nav-tabs">
-        <a href="#privacy" class="nav-btn">Privacy Policy</a>
-        <a href="#terms" class="nav-btn">Terms of Service</a>
-        <a href="#medical" class="nav-btn">Medical Notice</a>
-        <a href="#contact" class="nav-btn">Direct Support</a>
+      <div class="segmented-control" role="tablist" aria-label="Legal Documents">
+        <button type="button" class="tab-btn active" data-tab="all" onclick="switchTab('all')">All Documents</button>
+        <button type="button" class="tab-btn" data-tab="privacy" onclick="switchTab('privacy')">Privacy Policy</button>
+        <button type="button" class="tab-btn" data-tab="terms" onclick="switchTab('terms')">Terms of Service</button>
+        <button type="button" class="tab-btn" data-tab="medical" onclick="switchTab('medical')">Medical Notice</button>
       </div>
     </header>
 
     <!-- 1. PRIVACY POLICY -->
-    <section id="privacy">
+    <section id="privacy" class="doc-section">
       <div class="section-header" style="color: var(--accent);">
         <span>✋ PRIVACY POLICY • LAST UPDATED OCTOBER 2026</span>
       </div>
@@ -237,7 +272,7 @@
     </section>
 
     <!-- 2. TERMS OF SERVICE -->
-    <section id="terms">
+    <section id="terms" class="doc-section">
       <div class="section-header" style="color: var(--indigo);">
         <span>📄 TERMS OF SERVICE • LAST UPDATED OCTOBER 2026</span>
       </div>
@@ -282,7 +317,7 @@
     </section>
 
     <!-- 3. MEDICAL DISCLAIMER -->
-    <section id="medical">
+    <section id="medical" class="doc-section">
       <div class="section-header" style="color: var(--danger);">
         <span>🩺 CRITICAL MEDICAL &amp; HEALTH DISCLAIMER</span>
       </div>
@@ -293,43 +328,3 @@
       <div class="card">
         <h3>1. Not a Substitute for Medical Advice or Diagnosis</h3>
         <p>tAlly+ is a personal activity journal, screening reminder calendar, and medication course scheduler.</p>
-        <p>tAlly+ is NOT a medical device, diagnostic instrument, clinical provider, or licensed medical professional.</p>
-        <p>The countdowns, test cadences, and reminder tools in this app are for personal organizational reference only and do NOT constitute medical advice, diagnosis, treatment, or clinical recommendations.</p>
-      </div>
-
-      <div class="card">
-        <h3>2. HIV 90-Day Window Period Tracker Notice</h3>
-        <p>The 90-day exposure window assessment in tAlly+ applies strictly to statistical HIV exposure models and the 90-day conclusive window clearance period based on public health guidelines (CDC/WHO).</p>
-        <p>It does NOT assess, detect, track, or guarantee clearance for other Sexually Transmitted Infections (STIs/STDs) such as Syphilis, Gonorrhea, Chlamydia, HPV, Herpes, or Hepatitis, which have distinct transmission routes, incubation periods, and testing guidelines.</p>
-      </div>
-
-      <div class="card">
-        <h3>3. Always Consult Licensed Healthcare Providers</h3>
-        <p>Always consult a licensed physician, STI clinic, or qualified medical professional with any questions regarding sexual health, screening intervals, symptoms, test interpretations, or clinical treatments.</p>
-        <p>Never disregard or delay seeking professional clinical guidance because of something you have logged, calculated, or read in tAlly+.</p>
-      </div>
-
-      <div class="card">
-        <h3>4. PrEP, PEP &amp; Doxy-PEP Medication Notice</h3>
-        <p>Information and reminder presets for Pre-Exposure Prophylaxis (PrEP), Post-Exposure Prophylaxis (PEP), Doxycycline Post-Exposure Prophylaxis (Doxy-PEP), or antibiotics are scheduling aids only.</p>
-        <p>Follow your prescribing physician's or dispensing pharmacist's instructions exactly regarding dosage, timing, and administration.</p>
-        <p>Post-exposure prophylaxis (PEP) is time-critical. If you suspect an exposure to HIV or an STI, contact an emergency room or sexual health clinic immediately, without delay.</p>
-      </div>
-
-      <div class="card">
-        <h3>5. Medical Emergencies</h3>
-        <p>If you believe you are experiencing a medical emergency, acute infection, or severe reaction, immediately call your local emergency telephone number (911 in the US/Canada, 112 in the EU, 999 in the UK) or go to the nearest emergency hospital.</p>
-      </div>
-    </section>
-
-    <!-- 4. CONTACT / SUPPORT -->
-    <footer id="contact">
-      <p><strong>Questions, Feedback or Inquiries?</strong></p>
-      <p style="margin-top: 4px;">Direct Support: <a href="mailto:tallyplus.app@gmail.com">tallyplus.app@gmail.com</a></p>
-      <p style="margin-top: 12px; font-size: 12px;">© 2026 tAlly+ Developer, Philippines. All rights reserved.</p>
-    </footer>
-
-  </div>
-
-</body>
-</html>
